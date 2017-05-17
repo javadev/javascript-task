@@ -1,0 +1,21 @@
+{
+  "name": "jsTask",
+  "version": "1.0.0",
+  "description": "javascript task",
+  "keywords": [
+    "Compare",
+    "Strings"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "expect.js": "0.3.1",
+    "chai": "3.4.0",
+    "mocha": "3.1.1",
+    "istanbul": "0.4.5",
+    "codecov": "1.0.0"
+  },
+  "main": "./lib/generateDay",
+  "scripts": {
+    "test": "istanbul cover node_modules/mocha/bin/_mocha && codecov"
+  }
+}
