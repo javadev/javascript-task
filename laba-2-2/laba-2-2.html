@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Mouse over events</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<div id="change">Mouse over events text</div>
+<a onClick="ChangeStyle();">Click me</a>
+<!--
+<a onMouseOver="ChangeStyle();">Click me</a>
+-->
+<script>
+var ChangeStyle = function() {
+    const changeElement = document.getElementById('change');
+    changeElement.style.textDecoration = 'underline';
+    changeElement.style.fontWeight = '900';
+    changeElement.style.color = "blue";
+};
+
+</script>
+</body>
+</html>
