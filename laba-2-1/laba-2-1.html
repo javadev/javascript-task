@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Mouse click events</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<div>
+<img id="picture" src="image.jpg"></img>
+</div>
+<script>
+window.onload = function () {
+    let buttonPressed = false;
+    document.getElementById('picture').addEventListener('mousedown', function(evt) {
+        if (evt.buttons === 1) {
+            if (!buttonPressed) {
+              evt.target.height = evt.target.naturalHeight * 2;
+              evt.target.width = evt.target.naturalWidth * 2;
+            } else {
+              evt.target.height = evt.target.naturalHeight;
+              evt.target.width = evt.target.naturalWidth;
+            }
+            buttonPressed = !buttonPressed;            
+        }
+    });
+};
+</script>
+</body>
+</html>
