@@ -9,8 +9,10 @@
 <script>
 window.onload = function () {
     if (typeof generateDay === 'function') {
+        const prefixOne = 'до конца вашей учебы остался ';
+        const prefixTwo = 'до конца вашей учебы осталось ';
         document.write('<div>' +
-            ['1 ' + generateDay(1), '3 ' + generateDay(3), '14 ' + generateDay(14)].join('</div><div>') +
+            [prefixOne + '1 ' + generateDay(1), prefixTwo + '3 ' + generateDay(3), prefixTwo + '14 ' + generateDay(14)].join('</div><div>') +
         '</div>');
     }
 };
