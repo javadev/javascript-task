@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Login form</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<form onsubmit="return validateForm(this);">
+  <div class="container">
+    <label><b>Логин</b></label>
+    <input type="text" placeholder="Enter Username" name="uname"><br/>
+
+    <label><b>Пароль</b></label>
+    <input type="password" placeholder="Enter Password" name="psw"><br/>
+
+    <label><b>Проверка пароля</b></label>
+    <input type="password" placeholder="Enter Password again" name="psw2"><br/>
+
+    <label><b>E-mail</b></label>
+    <input type="text" placeholder="Enter E-mail" name="email"><br/>
+    <div id="errors" style="color:red;"></div>
+
+    <button type="submit">Отправить</button>
+  </div>
+</form>
+<script>
+var validateForm = function() {
+    const login = document.getElementsByName('uname')[0].value;
+    const password = document.getElementsByName('psw')[0].value;
+    const password2 = document.getElementsByName('psw2')[0].value;
+    const email = document.getElementsByName('email')[0].value;
+    let errors = [];
+    if (login.trim().length === 0) {
+        errors.push('login is required');
+    }
+    if (password.trim().length === 0) {
+        errors.push('password is required');
+    }
+    if (password2.trim().length === 0) {
+        errors.push('password2 is required');
+    }
+    if (email.trim().length === 0) {
+        errors.push('email is required');
+    }
+
+    if (login.length < 6 || login.length > 12) {
+        errors.push('login length should be between 6 and 12.');
+    }
+    if (password.length < 6 || password.length > 12) {
+        errors.push('password length should be between 6 and 12.');
+    }
+    if (password2.length < 6 || password2.length > 12) {
+        errors.push('password check length should be between 6 and 12.');
+    }
+    if (email.length < 6 || email.length > 12) {
+        errors.push('email length should be between 6 and 12.');
+    }
+
+    if (password !== password2) {
+        errors.push('password should be equal password2.');
+    }
+
+    if (email.indexOf('@') === -1) {
+        errors.push('email should contain @.');
+    }
+    if (errors.length > 0) {
+       document.getElementById('errors').innerHTML = errors.join('<br/>');
+       return false;
+    }
+    return true;
+};
+
+</script>
+</body>
+</html>
